@@ -3,6 +3,10 @@ from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 from datetime import datetime
 
+def parse_player_name(player):
+    player = player.replace(' ', '-')
+    return player
+
 def request_base_html(url):
     response = requests.get(url)
     if response.status_code != 200:
@@ -10,12 +14,17 @@ def request_base_html(url):
     
     return response
 
-def get_ulr_spotrac_player(player, team):
-    domain = 'https://www.spotrac.com/mlb'
-    domain_team = domain + '/' + team
-    domain_team_player = domain_team + '/' + player
+def get_ulr_spotrac_player(player, teams):
 
-    return str(domain_team_player)
+    for team in teams:
+        domain = 'https://www.spotrac.com/mlb'
+        domain_team = domain + '/' + team
+        domain_team_player = domain_team + '/' + player + '/' + 'transactions/'
+
+        if request_base_html(domain_team_player) is not None:
+            return str(domain_team_player)
+        
+    return None
 
 def create_team_dict():
     dict = {}
@@ -57,13 +66,10 @@ def create_team_dict():
     dict['Toronto Blue Jays'] = 'toronto-blue-jays'
     return dict
 
-def make_pretty_soup(response):
-    return BeautifulSoup(response.text, 'html.parser').prettify()
+def make_soup(response):
+    return BeautifulSoup(response.text, 'html.parser')
 
-def get_contract_info(player_ulr):
-    response = request_base_html(player_ulr)
-    soup = make_pretty_soup(response)
-
+def get_player_info(soup):
     player_info = {}
 
     for transaction in soup.find_all('div', class_='transitem'):
@@ -71,26 +77,33 @@ def get_contract_info(player_ulr):
         year = datetime.strptime(year, '%b %d %Y').year
         info = transaction.find('span', class_='transdesc').text.strip()
 
-        if ('$' in info) and (year not in player_info):
-            player_info[year] = info
+        # and (year not in player_info) 
+        # -> this is to avoid overwriting the same year but is not curretnly used
+        if ('$' in info):
+            data = player_info.get(year)
 
+            if data is None:
+                player_info[year] = info
+            else:
+                player_info[year] = player_info[year] + '\n' + info
+                
     return player_info
 
-  
-
 def main():
-    team_dict = create_team_dict()
+    while True:
+        user_chosen_player = parse_player_name(input('Enter a player (X to exit): '))
+        # if user_chosen_player == 'X' or 'x':
+        #     break
 
-    player_ulr = get_ulr_spotrac_player('randy-johnson', team_dict['Arizona Diamondbacks'])
+        team_dict = create_team_dict()
+        
+        player_ulr = get_ulr_spotrac_player(str(user_chosen_player), team_dict)
 
-    print(player_ulr)
+        response = request_base_html(player_ulr)
 
-    response = request_base_html(player_ulr)
+        player_info = get_player_info(make_soup(response))
 
-    print(response)
-
-    pretty_soup = make_pretty_soup(response)
-
-    print(get_contract_info(player_ulr))
-
+        for key in player_info:
+            print(key, player_info[key])
+   
 main()
