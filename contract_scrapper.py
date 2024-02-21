@@ -1,8 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urlparse
 from datetime import datetime
 import re
+import os
+
 
 def parse_player_name(player):
     player = player.replace(' ', '-')
@@ -87,95 +88,7 @@ def get_player_info(soup):
                     player_info[year].append(info)
                 
     return player_info
-#v1
-# def get_largest_contract(player_info):
-#     largest_contract = 0
-#     for year in player_info:
-#         for contract in player_info[year]:
-#             match = re.search(r'\$(\d+(?:\.\d+)?)( million)?', contract)
-#             if match:
-#                 value = float(match.group(1))
-#                 if match.group(2):
-#                     value *= 1e6  # convert to millions if 'million' is present
-#                 if value > largest_contract:
-#                     largest_contract = value
-#     return largest_contract
 
-#v2
-# def get_largest_contract(player_info):
-#     largest_contract = 0
-#     for year in player_info:
-#         for contract in player_info[year]:
-#             contract = contract.replace('$', '')
-#             contract = contract.replace(',', '')
-#             contract = contract.split(' ')
-#             if len(contract) > 1:
-#                 if contract[1] == 'million':
-#                     if float(contract[0]) > largest_contract:
-#                         largest_contract = float(contract[0])
-#     return largest_contract
-
-#v3
-# def get_largest_contract(player_info):
-#     largest_contract = 0
-#     largest_contract_year = None
-#     for year in player_info:
-#         for contract in player_info[year]:
-#             match = re.search(r'\$(\d+(?:\.\d+)?)( million)?', contract)
-#             if match:
-#                 value = float(match.group(1))
-#                 if match.group(2):
-#                     value *= 1e6  # convert to millions if 'million' is present
-#                 if value > largest_contract:
-#                     largest_contract = value
-#                     largest_contract_year = year
-#     return largest_contract_year, "${:,.2f}".format(largest_contract)
-
-#v4
-# def get_largest_contract(player_info):
-#     largest_contract = 0
-#     largest_contract_year = None
-#     largest_contract_duration = None
-#     for year in player_info:
-#         for contract in player_info[year]:
-#             match = re.search(r'\$(\d+(?:\.\d+)?)( million)?', contract)
-#             duration_match = re.search(r'(\d+) year', contract)
-#             if match:
-#                 value = float(match.group(1))
-#                 if match.group(2):
-#                     value *= 1e6  # convert to millions if 'million' is present
-#                 if value > largest_contract:
-#                     largest_contract = value
-#                     largest_contract_year = year
-#                     if duration_match:
-#                         largest_contract_duration = int(duration_match.group(1))
-#     return largest_contract_year, "${:,.2f}".format(largest_contract), largest_contract_duration
-
-#v5
-# def get_largest_contract(player_info):
-#     largest_contract = 0
-#     largest_contract_year = None
-#     largest_contract_duration = None
-#     largest_contract_team = None
-#     for year in player_info:
-#         for contract in player_info[year]:
-#             match = re.search(r'\$(\d+(?:\.\d+)?)( million)?', contract)
-#             duration_match = re.search(r'(\d+) year', contract)
-#             team_match = re.search(r'with (.+?) \(', contract)
-#             if match:
-#                 value = float(match.group(1))
-#                 if match.group(2):
-#                     value *= 1e6  # convert to millions if 'million' is present
-#                 if value > largest_contract:
-#                     largest_contract = value
-#                     largest_contract_year = year
-#                     if duration_match:
-#                         largest_contract_duration = int(duration_match.group(1))
-#                     if team_match:
-#                         largest_contract_team = team_match.group(1)
-#     return largest_contract_year, "${:,.2f}".format(largest_contract), largest_contract_duration, largest_contract_team
-
-#v6
 def get_largest_contract(player_info):
     largest_contract = 0
     largest_contract_year = None
@@ -199,20 +112,23 @@ def get_largest_contract(player_info):
                         largest_contract_team = team_match.group(1)
     return largest_contract_year, "${:,.2f}".format(largest_contract), largest_contract_duration, largest_contract_team
 
-def main():
+def continuous_player_search():
     while True:
+    
         player_name = input('Enter a player (X to exit): ')
+        if player_name == 'x' or player_name == 'X':
+            break
 
         user_chosen_player = parse_player_name(player_name)
     
         team_dict = create_team_dict()
-        
+            
         player_ulr = get_ulr_spotrac_player(str(user_chosen_player), team_dict)
 
         response = request_base_html(player_ulr)
 
         player_info = get_player_info(make_soup(response))
-        
+            
         largest_contract = get_largest_contract(player_info)
 
         print('player: ' + player_name)
@@ -222,5 +138,34 @@ def main():
         print('team: ' + str(largest_contract[3]))
         print('\n')
 
-        
+        # add the results of a search to a file in the correct directory
+        os.chdir('/Users/cadenparry/Analyzing-MLB-Contracts')
+
+        with open('results-test-1.txt', 'a') as file:
+            file.write('player: ' + player_name + '\n')
+            file.write('year: ' + str(largest_contract[0]) + '\n')
+            file.write('contract value: ' + str(largest_contract[1]) + '\n')
+            file.write('duration: ' + str(largest_contract[2]) + '\n')
+            file.write('team: ' + str(largest_contract[3]) + '\n')
+            file.write('\n')
+            file.close()
+            
+def main():
+    # print('Welcome to the MLB contract scrapper')
+    # print('Press C for continuous search of players contracts')
+    # print('Press X to exit at any time')
+    # choice = input('Enter your choice: ')
+
+    # if choice == 'C' or 'c':
+    #     continuous_player_search()
+    # else:
+    #     print('Goodbye')
+
+   #print(os.getcwd())
+   continuous_player_search()
+
+
+    
+
+
 main()
