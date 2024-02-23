@@ -3,7 +3,99 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import re
 import os
+import csv
 
+# Jason Giambi
+def make_player_list():
+    names = """
+    Alex Rodriguez
+    Derek Jeter
+    Alex Rodriguez
+    Manny Ramirez
+    Albert Pujols
+    Clayton Kershaw
+    Prince Fielder
+    Mark Teixeira
+    Dave Winfield
+    David Price
+    Joe Mauer
+    Kevin Brown
+    Robinson Cano
+    Zack Greinke
+    Catfish Hunter
+    Max Scherzer
+    Mike Hampton
+    Felix Hernandez
+    Alfonso Soriano
+    Jason Heyward
+    Mike Piazza
+    Chipper Jones
+    Johan Santana
+    Carlos Beltran
+    Ken Griffey Jr
+    Bernie Williams
+    Adrian Gonzalez
+    Barry Zito
+    Barry Bonds
+    Masahiro Tanaka
+    Chris Davis
+    Mo Vaughn
+    Jacoby Ellsbury
+    Carl Crawford
+    Mike Mussina
+    Jon Lester
+    Jim Thome
+    Vernon Wells
+    Mike Schmidt
+    Pedro Martinez
+    Matt Holliday
+    David Wright
+    Cliff Lee
+    Ryan Howard
+    Eric Hosmer
+    Carlos Lee
+    Jayson Werth
+    Justin Verlander
+    CC Sabathia
+    Magglio Ordonez
+    Cecil Fielder
+    Greg Maddux
+    Albert Belle
+    Shin-Soo Choo
+    Vladimir Guerrero
+    Barry Bonds
+    Johnny Cueto
+    Torii Hunter
+    Ichiro Suzuki
+    Greg Maddux
+    Josh Hamilton
+    George Brett
+    Jose Reyes
+    Adrian Beltre
+    Bobby Bonilla
+    AJ Burnett
+    Matt Cain
+    Miguel Tejada
+    Nolan Ryan
+    JD Martinez
+    JD Martinez
+    Randy Johnson
+    Jordan Zimmermann
+    Justin Upton
+    Mark McGwire
+    Aramis Ramirez
+    Reggie Jackson
+    JD Drew
+    Roger Clemens
+    Adrian Beltre
+    Rod Carew
+    Ivan Rodriguez
+    Ryan Braun"""
+
+    # Split the string by newline character to create a list
+    name_list = [name.strip() for name in names.split('\n') if name]
+
+    return name_list
 
 def parse_player_name(player):
     player = player.replace(' ', '-')
@@ -16,12 +108,17 @@ def request_base_html(url):
     
     return response
 
-def get_ulr_spotrac_player(player, teams):
+def get_spotrac_url(player, teams, type):
+    if type == 'tran':
+        type = 'transactions'
+    
+    if type == 'stat' or 'stats':
+        type = 'statistics'
 
     for team in teams:
         domain = 'https://www.spotrac.com/mlb'
         domain_team = domain + '/' + team
-        domain_team_player = domain_team + '/' + player + '/' + 'transactions/'
+        domain_team_player = domain_team + '/' + player + '/' + type + '/'
 
         if request_base_html(domain_team_player) is not None:
             return str(domain_team_player)
@@ -112,22 +209,16 @@ def get_largest_contract(player_info):
                         largest_contract_team = team_match.group(1)
     return largest_contract_year, "${:,.2f}".format(largest_contract), largest_contract_duration, largest_contract_team
 
-def continuous_player_search():
+def continuous_contract():
     while True:
     
         player_name = input('Enter a player (X to exit): ')
         if player_name == 'x' or player_name == 'X':
             break
-
-        user_chosen_player = parse_player_name(player_name)
-    
-        team_dict = create_team_dict()
             
-        player_ulr = get_ulr_spotrac_player(str(user_chosen_player), team_dict)
+        player_ulr = get_spotrac_url(str(parse_player_name(player_name)), create_team_dict(), 'tran')
 
-        response = request_base_html(player_ulr)
-
-        player_info = get_player_info(make_soup(response))
+        player_info = get_player_info(make_soup(request_base_html(player_ulr)))
             
         largest_contract = get_largest_contract(player_info)
 
@@ -138,17 +229,60 @@ def continuous_player_search():
         print('team: ' + str(largest_contract[3]))
         print('\n')
 
-        # add the results of a search to a file in the correct directory
         os.chdir('/Users/cadenparry/Analyzing-MLB-Contracts')
+        filename = 'results-test.csv'
 
-        with open('results-test-1.txt', 'a') as file:
-            file.write('player: ' + player_name + '\n')
-            file.write('year: ' + str(largest_contract[0]) + '\n')
-            file.write('contract value: ' + str(largest_contract[1]) + '\n')
-            file.write('duration: ' + str(largest_contract[2]) + '\n')
-            file.write('team: ' + str(largest_contract[3]) + '\n')
-            file.write('\n')
-            file.close()
+        # Check if the file does not exist or is empty
+        if not os.path.exists(filename) or os.path.getsize(filename) == 0:
+            with open(filename, 'a') as file:
+                file.write('player;amount;length;year;team' + '\n')
+
+        # Read existing data
+        with open(filename, 'r') as file:
+            existing_data = list(csv.reader(file, delimiter=';'))
+
+        # Prepare new data
+        new_data = [player_name, str(largest_contract[1]), str(largest_contract[2]), str(largest_contract[0]), str(largest_contract[3])]
+
+        # Check if new data already exists in the file
+        if new_data not in existing_data:
+            # If not, append it
+            with open(filename, 'a') as file:
+                writer = csv.writer(file, delimiter=';')
+                writer.writerow(new_data)
+
+def db_contract(player_list, team_dict):
+    for player in player_list:
+        player_ulr = get_spotrac_url(parse_player_name(player), team_dict, 'tran')
+        response = request_base_html(player_ulr)
+        player_info = get_player_info(make_soup(response))
+        largest_contract = get_largest_contract(player_info)
+
+        os.chdir('/Users/cadenparry/Analyzing-MLB-Contracts')
+        filename = 'results-test.csv'
+
+        # Check if the file does not exist or is empty
+        if not os.path.exists(filename) or os.path.getsize(filename) == 0:
+            with open(filename, 'a') as file:
+                file.write('player;amount;length;year;team' + '\n')
+
+        # Read existing data
+        with open(filename, 'r') as file:
+            existing_data = list(csv.reader(file, delimiter=';'))
+
+        # Prepare new data
+        new_data = [player, str(largest_contract[1]), str(largest_contract[2]), str(largest_contract[0]), str(largest_contract[3])]
+
+        # Check if new data already exists in the file
+        if new_data not in existing_data:
+            # If not, append it
+            with open(filename, 'a') as file:
+                writer = csv.writer(file, delimiter=';')
+                writer.writerow(new_data)
+
+                print(player + ' added to the file')
+        else:
+            print(player + ' already exists in the file')
             
 def main():
     # print('Welcome to the MLB contract scrapper')
@@ -162,10 +296,19 @@ def main():
     #     print('Goodbye')
 
    #print(os.getcwd())
-   continuous_player_search()
+   #os.chdir('/Users/cadenparry/Analyzing-MLB-Contracts')
+   
+   #continuous_player_search()
 
+    #db_search(make_player_list(), create_team_dict())
 
-    
+    # for names in make_player_list():
+    #     print(names)
 
+    stat_url = get_spotrac_url('mike-trout', create_team_dict(), 'stat')
+    response = request_base_html(stat_url)
+    soup = make_soup(response)
+
+    print(soup)
 
 main()
