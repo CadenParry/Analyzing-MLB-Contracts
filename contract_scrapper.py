@@ -109,16 +109,18 @@ def request_base_html(url):
     return response
 
 def get_spotrac_url(player, teams, type):
-    if type == 'tran':
-        type = 'transactions'
+    # if type == 'tran':
+    #     type = 'transactions'
     
     if type == 'stat' or 'stats':
-        type = 'statistics'
+        type = 'statistics/'
+    else: 
+        pass
 
     for team in teams:
         domain = 'https://www.spotrac.com/mlb'
         domain_team = domain + '/' + team
-        domain_team_player = domain_team + '/' + player + '/' + type + '/'
+        domain_team_player = domain_team + '/' + player + '/' + type #+ '/'
 
         if request_base_html(domain_team_player) is not None:
             return str(domain_team_player)
