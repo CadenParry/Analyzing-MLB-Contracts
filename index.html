@@ -4,8 +4,33 @@
     <title>My Project</title>
 </head>
 <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <div id="myDiv"></div>
+    <script>
+      let contractStart
+      let contractEnd
+
+      Papa.parse("contracts.csv", {
+          download: true,
+          header: true,
+          complete: function(results) {
+              //console.log(results.data);
+              results.data.forEach(function(row) 
+              {
+                if(row['player'] == 'Robinson Cano')
+                {
+                  contractStart = row['year']
+                  contractEnd = parseInt(row['year']) + parseInt(row['length'])
+
+                  console.log(contractStart)
+                  console.log(contractEnd)
+                }
+              });
+              // You can use the data here to replace the hardcoded values in your traces
+          }
+      });
+    </script>
     <script>
         var trace1 = {
           x: [1, 2, 3, 4, 5],
@@ -17,30 +42,32 @@
           marker: { size: 12 }
         };
         
-        var trace2 = {
-          x: [1.5, 2.5, 3.5, 4.5, 5.5],
-          y: [4, 1, 7, 1, 4],
-          mode: 'markers',
-          type: 'scatter',
-          name: 'Team B',
-          text: ['B-1', 'B-2', 'B-3', 'B-4', 'B-5'],
-          marker: { size: 12 }
-        };
+        // var trace2 = {
+        //   x: [1.5, 2.5, 3.5, 4.5, 5.5],
+        //   y: [4, 1, 7, 1, 4],
+        //   mode: 'markers',
+        //   type: 'scatter',
+        //   name: 'Team B',
+        //   text: ['B-1', 'B-2', 'B-3', 'B-4', 'B-5'],
+        //   marker: { size: 12 }
+        // };
         
-        var data = [ trace1, trace2 ];
+        var data = [ trace1 ];
         
         var layout = {             
           xaxis: {
-            range: [ 0.75, 5.25 ] 
+            range: [contractStart, contractEnd ] 
+            
+            
           },
           yaxis: {
-            range: [0, 8]
+            range: [0, 12]
           },
           title:'Data Labels on Hover'
         };
         
         Plotly.newPlot('myDiv', data, layout);
-        </script>
+    </script>
     <!-- <h1>Welcome to My Project</h1>
     <p>This is a brief description of my project.</p>
 
@@ -51,6 +78,6 @@
     <p>Here you can write about the goals of your project.</p>
 
     <h2>Contact Information</h2>
-    <p>For more information, please reach out to me at <a href="mailto:your-email@example.com">your-email@example.com</a>.</p>
-</body> -->
+    <p>For more information, please reach out to me at <a href="mailto:your-email@example.com">your-email@example.com</a>.</p> -->
+</body>
 </html>
