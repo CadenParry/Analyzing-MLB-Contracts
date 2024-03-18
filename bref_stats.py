@@ -29,9 +29,13 @@ def test_list():
 
 def create_bref_urls():
 
+    from tqdm import tqdm 
+
     player_dict = {}
 
-    for name in test_list():
+    names = test_list()
+
+    for name in tqdm(names):
 
         base_url = 'https://www.baseball-reference.com/players/'
 
@@ -54,35 +58,27 @@ def create_bref_urls():
         else:
             base_url = (base_url + first_of_last + '/' + last_name + first_name[0:2]).lower()
 
-        possible_player_urls = []
-        for i in range(5, 0, -1):
-            final_url = base_url + '0' + str(i) + '.shtml'
-            
-            response = requests.get(final_url)
-            time.sleep(1)
+        # possible_player_urls = []
+        # for i in range(5, 0, -1):
+        #     final_url = base_url + '0' + str(i) + '.shtml'
+        #     final_url
+        #     response = requests.get(final_url)
+        #     time.sleep(1)
 
-            if response.status_code == 200:
-                possible_player_urls.append(final_url)
+        #     if response.status_code == 200:
+        #         possible_player_urls.append(final_url)
         
-        player_dict[name] = possible_player_urls
-
+        # player_dict[name] = possible_player_urls
+        player_dict[name] = base_url + '01.shtml'
     return player_dict
-                
-               
-                
 
 
+# def main():
+    # player_url = player_url_finished_dict['Albert Pujols'][0]
+    # response = requests.get(player_url)
+    # print(response)
 
-            
-
-           
-
-def main():
-    player_url = player_url_finished_dict['Albert Pujols'][0]
-    response = requests.get(player_url)
-    print(response)
-
-main()
+# main()
 
 # https://www.baseball-reference.com/players/g/griffke02.shtml
 
