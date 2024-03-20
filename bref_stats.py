@@ -70,9 +70,42 @@ def create_bref_urls():
         
         # player_dict[name] = possible_player_urls
         player_dict[name] = base_url + '01.shtml'
+        print(player_dict[name])
     return player_dict
 
+def get_player_id(player_name):
+    player_id = ''
+    
+    name_parts = player_name.split()  # Split the name into parts
 
+    # Handle names with different number of parts
+    if len(name_parts) == 2:  # If the name has two parts
+        first_name, last_name = name_parts
+        suff = ''
+    elif len(name_parts) == 3:  # If the name has three parts
+        first_name, last_name, suff = name_parts
+    else:
+        print(f"Unexpected name format: {player_name}")
+
+    if len(last_name) > 5:
+        player_id = (last_name[0:5] + first_name[0:2]).lower()
+    else:
+        player_id = (last_name + first_name[0:2]).lower()
+
+    return player_id
+
+    # possible_player_urls = []
+    # for i in range(5, 0, -1):
+    #     final_url = base_url + '0' + str(i) + '.shtml'
+    #     final_url
+    #     response = requests.get(final_url)
+    #     time.sleep(1)
+
+    #     if response.status_code == 200:
+    #         possible_player_urls.append(final_url)
+    
+    # player_dict[name] = possible_player_urls
+ 
 # def main():
     # player_url = player_url_finished_dict['Albert Pujols'][0]
     # response = requests.get(player_url)

@@ -287,6 +287,15 @@ def db_contract(player_list, team_dict):
             print(player + ' already exists in the file')
             
 def main():
+
+    bref_players = []
+    with open('bref-contracts.csv', 'r') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            bref_players.append(row['Name'])
+
+    db_contract(bref_players, create_team_dict())
+    
     # print('Welcome to the MLB contract scrapper')
     # print('Press C for continuous search of players contracts')
     # print('Press X to exit at any time')
@@ -307,10 +316,10 @@ def main():
     # for names in make_player_list():
     #     print(names)
 
-    stat_url = get_spotrac_url('mike-trout', create_team_dict(), 'stat')
-    response = request_base_html(stat_url)
-    soup = make_soup(response)
+    # stat_url = get_spotrac_url('mike-trout', create_team_dict(), 'stat')
+    # response = request_base_html(stat_url)
+    # soup = make_soup(response)
 
-    print(soup)
+    # print(soup)
 
 main()

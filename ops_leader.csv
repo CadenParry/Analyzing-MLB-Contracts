@@ -1,0 +1,154 @@
+﻿Year,National League,OPS,,American League,OPS,,OPS_Leader
+2023,Ronald Acuna Jr. (ATL),1.012,,Shohei Ohtani* (LAA),1.066,,1.066
+2022,Paul Goldschmidt (STL),0.981,,Aaron Judge (NYY),1.111,,1.111
+2021,Bryce Harper* (PHI),1.044,,Vladimir Guerrero Jr. (TOR),1.002,,1.044
+2020,Juan Soto* (WSN),1.185,,DJ LeMahieu (NYY),1.011,,1.185
+2019,Christian Yelich* (MIL),1.100,,Mike Trout (LAA),1.083,,1.100
+2018,Christian Yelich* (MIL),1.000,,Mike Trout (LAA),1.088,,1.088
+2017,Joey Votto* (CIN),1.032,,Mike Trout (LAA),1.071,,1.071
+2016,Daniel Murphy* (WSN),0.985,,David Ortiz+* (BOS),1.021,,1.021
+2015,Bryce Harper* (WSN),1.109,,Mike Trout (LAA),0.991,,1.109
+2014,Andrew McCutchen (PIT),0.952,,Víctor Martínez# (DET),0.974,,0.974
+2013,Paul Goldschmidt (ARI),0.952,,Miguel Cabrera (DET),1.078,,1.078
+2012,Ryan Braun (MIL),0.987,,Miguel Cabrera (DET),0.999,,0.999
+2011,Ryan Braun (MIL),0.994,,José Bautista (TOR),1.056,,1.056
+2010,Joey Votto* (CIN),1.024,,Josh Hamilton* (TEX),1.044,,1.044
+2009,Albert Pujols (STL),1.101,,Joe Mauer+* (MIN),1.031,,1.101
+2008,Albert Pujols (STL),1.114,,Milton Bradley# (TEX),0.999,,1.114
+2007,Chipper Jones+# (ATL),1.029,,Alex Rodriguez (NYY),1.067,,1.067
+2006,Albert Pujols (STL),1.102,,Travis Hafner* (CLE),1.097,,1.102
+2005,Derrek Lee (CHC),1.080,,Alex Rodriguez (NYY),1.031,,1.080
+2004,Barry Bonds* (SFG),1.422,,Manny Ramirez (BOS),1.009,,1.422
+2003,Barry Bonds* (SFG),1.278,,Carlos Delgado* (TOR),1.019,,1.278
+2002,Barry Bonds* (SFG),1.381,,Jim Thome+* (CLE),1.122,,1.381
+2001,Barry Bonds* (SFG),1.379,,Jason Giambi* (OAK),1.137,,1.379
+2000,Todd Helton+* (COL),1.162,,Manny Ramirez (CLE),1.154,,1.162
+1999,Larry Walker+* (COL),1.168,,Manny Ramirez (CLE),1.105,,1.168
+1998,Mark McGwire (STL),1.222,,Albert Belle (CHW),1.055,,1.222
+1997,Larry Walker+* (COL),1.172,,Frank Thomas+ (CHW),1.067,,1.172
+1996,Gary Sheffield (FLA),1.090,,Mark McGwire (OAK),1.198,,1.198
+1995,Barry Bonds* (SFG),1.009,,Edgar Martínez+ (SEA),1.107,,1.107
+1994,Jeff Bagwell+ (HOU),1.201,,Frank Thomas+ (CHW),1.217,,1.217
+1993,Barry Bonds* (SFG),1.136,,John Olerud* (TOR),1.072,,1.136
+1992,Barry Bonds* (PIT),1.080,,Frank Thomas+ (CHW),0.975,,1.080
+1991,Barry Bonds* (PIT),0.924,,Frank Thomas+ (CHW),1.006,,1.006
+1990,Barry Bonds* (PIT),0.970,,Rickey Henderson+ (OAK),1.016,,1.016
+1989,Kevin Mitchell (SFG),1.023,,Fred McGriff+* (TOR),0.924,,1.023
+1988,Darryl Strawberry* (NYM),0.911,,Wade Boggs+* (BOS),0.965,,0.965
+1987,Jack Clark (STL),1.055,,Wade Boggs+* (BOS),1.049,,1.055
+1986,Mike Schmidt+ (PHI),0.937,,Don Mattingly* (NYY),0.967,,0.967
+1985,Pedro Guerrero (LAD),0.999,,George Brett+* (KCR),1.022,,1.022
+1984,Mike Schmidt+ (PHI),0.919,,Dwight Evans (BOS),0.920,,0.920
+1983,Dale Murphy (ATL),0.933,,George Brett+* (KCR),0.947,,0.947
+1982,Mike Schmidt+ (PHI),0.949,,Robin Yount+ (MIL),0.957,,0.957
+1981,Mike Schmidt+ (PHI),1.080,,Dwight Evans (BOS),0.937,,1.080
+1980,Mike Schmidt+ (PHI),1.004,,George Brett+* (KCR),1.118,,1.118
+1979,Dave Kingman (CHC),0.956,,Fred Lynn* (BOS),1.059,,1.059
+1978,Dave Parker* (PIT),0.979,,Jim Rice+ (BOS),0.970,,0.979
+1977,George Foster (CIN),1.013,,Rod Carew+* (MIN),1.019,,1.019
+1976,Joe Morgan+* (CIN),1.020,,Hal McRae (KCR),0.868,,1.020
+1975,Joe Morgan+* (CIN),0.974,,Fred Lynn* (BOS),0.967,,0.974
+1974,Willie Stargell+* (PIT),0.944,,Dick Allen (CHW),0.938,,0.944
+1973,Willie Stargell+* (PIT),1.038,,Reggie Jackson+* (OAK),0.914,,1.038
+1972,Billy Williams+* (CHC),1.005,,Dick Allen (CHW),1.023,,1.023
+1971,Henry Aaron+ (ATL),1.079,,Bobby Murcer* (NYY),0.969,,1.079
+1970,Willie McCovey+* (SFG),1.056,,Carl Yastrzemski+* (BOS),1.044,,1.056
+1969,Willie McCovey+* (SFG),1.108,,Reggie Jackson+* (OAK),1.018,,1.108
+1968,Willie McCovey+* (SFG),0.923,,Carl Yastrzemski+* (BOS),0.922,,0.923
+1967,Dick Allen (PHI),0.970,,Carl Yastrzemski+* (BOS),1.040,,1.040
+1966,Dick Allen (PHI),1.027,,Frank Robinson+ (BAL),1.047,,1.047
+1965,Willie Mays+ (SFG),1.043,,Carl Yastrzemski+* (BOS),0.932,,1.043
+1964,Willie Mays+ (SFG),0.990,,Mickey Mantle+# (NYY),1.015,,1.015
+1963,Henry Aaron+ (MLN),0.977,,Bob Allison (MIN),0.911,,0.977
+1962,Frank Robinson+ (CIN),1.045,,Mickey Mantle+# (NYY),1.091,,1.091
+1961,Frank Robinson+ (CIN),1.015,,Norm Cash* (DET),1.148,,1.148
+1960,Frank Robinson+ (CIN),1.002,,Mickey Mantle+# (NYY),0.957,,1.002
+1959,Henry Aaron+ (MLN),1.037,,Al Kaline+ (DET),0.940,,1.037
+1958,Willie Mays+ (SFG),1.002,,Ted Williams+* (BOS),1.042,,1.042
+1957,Stan Musial+* (STL),1.034,,Ted Williams+* (BOS),1.257,,1.257
+1956,Duke Snider+* (BRO),0.997,,Mickey Mantle+# (NYY),1.169,,1.169
+1955,Willie Mays+ (NYG),1.059,,Mickey Mantle+# (NYY),1.042,,1.059
+1954,Willie Mays+ (NYG),1.078,,Ted Williams+* (BOS),1.148,,1.148
+1953,Duke Snider+* (BRO),1.046,,Al Rosen (CLE),1.034,,1.046
+1952,Stan Musial+* (STL),0.970,,Mickey Mantle+# (NYY),0.924,,0.970
+1951,Ralph Kiner+ (PIT),1.079,,Ted Williams+* (BOS),1.019,,1.079
+1950,Stan Musial+* (STL),1.034,,Larry Doby+* (CLE),0.986,,1.034
+1949,Ralph Kiner+ (PIT),1.089,,Ted Williams+* (BOS),1.141,,1.141
+1948,Stan Musial+* (STL),1.152,,Ted Williams+* (BOS),1.112,,1.152
+1947,Ralph Kiner+ (PIT),1.055,,Ted Williams+* (BOS),1.133,,1.133
+1946,Stan Musial+* (STL),1.021,,Ted Williams+* (BOS),1.164,,1.164
+1945,Tommy Holmes* (BSN),0.997,,Snuffy Stirnweiss (NYY),0.862,,0.997
+1944,Stan Musial+* (STL),0.990,,Bob Johnson (BOS),0.959,,0.990
+1943,Stan Musial+* (STL),0.988,,Charlie Keller* (NYY),0.922,,0.988
+1942,Mel Ott+* (NYG),0.912,,Ted Williams+* (BOS),1.147,,1.147
+1941,Pete Reiser* (BRO),0.964,,Ted Williams+* (BOS),1.287,,1.287
+1940,Johnny Mize+* (STL),1.039,,Hank Greenberg+ (DET),1.103,,1.103
+1939,Johnny Mize+* (STL),1.070,,Jimmie Foxx+ (BOS),1.158,,1.158
+1938,Johnny Mize+* (STL),1.036,,Jimmie Foxx+ (BOS),1.166,,1.166
+1937,Joe Medwick+ (STL),1.056,,Lou Gehrig+* (NYY),1.116,,1.116
+1936,Mel Ott+* (NYG),1.036,,Lou Gehrig+* (NYY),1.174,,1.174
+1935,Arky Vaughan+* (PIT),1.098,,Jimmie Foxx+ (PHA),1.096,,1.098
+1934,Ripper Collins# (STL),1.008,,Lou Gehrig+* (NYY),1.172,,1.172
+1933,Chuck Klein+* (PHI),1.025,,Jimmie Foxx+ (PHA),1.153,,1.153
+1932,Chuck Klein+* (PHI),1.050,,Jimmie Foxx+ (PHA),1.218,,1.218
+1931,Rogers Hornsby+ (CHC),0.996,,Babe Ruth+* (NYY),1.195,,1.195
+1930,Hack Wilson+ (CHC),1.177,,Babe Ruth+* (NYY),1.225,,1.225
+1929,Rogers Hornsby+ (CHC),1.139,,Babe Ruth+* (NYY),1.128,,1.139
+1928,Rogers Hornsby+ (BSN),1.130,,Babe Ruth+* (NYY),1.172,,1.172
+1927,Rogers Hornsby+ (NYG),1.035,,Babe Ruth+* (NYY),1.258,,1.258
+1926,Cy Williams* (PHI),0.986,,Babe Ruth+* (NYY),1.253,,1.253
+1925,Rogers Hornsby+ (STL),1.245,,Ty Cobb+* (DET),1.066,,1.245
+1924,Rogers Hornsby+ (STL),1.203,,Babe Ruth+* (NYY),1.252,,1.252
+1923,Rogers Hornsby+ (STL),1.086,,Babe Ruth+* (NYY),1.309,,1.309
+1922,Rogers Hornsby+ (STL),1.181,,Babe Ruth+* (NYY),1.106,,1.181
+1921,Rogers Hornsby+ (STL),1.097,,Babe Ruth+* (NYY),1.359,,1.359
+1920,Rogers Hornsby+ (STL),0.990,,Babe Ruth+* (NYY),1.379,,1.379
+1919,Heinie Groh (CIN),0.823,,Babe Ruth+* (BOS),1.114,,1.114
+1918,Edd Roush+* (CIN),0.823,,Babe Ruth+* (BOS),0.966,,0.966
+1917,Rogers Hornsby+ (STL),0.868,,Ty Cobb+* (DET),1.014,,1.014
+1916,Cy Williams* (CHC),0.831,,Tris Speaker+* (CLE),0.972,,0.972
+1915,Gavvy Cravath (PHI),0.902,,Ty Cobb+* (DET),0.973,,0.973
+1914,Gavvy Cravath (PHI),0.901,,Ty Cobb+* (DET),0.979,,0.979
+1913,Gavvy Cravath (PHI),0.974,,Joe Jackson* (CLE),1.011,,1.011
+1912,Heinie Zimmerman (CHC),0.989,,Ty Cobb+* (DET),1.040,,1.040
+1911,Honus Wagner+ (PIT),0.930,,Ty Cobb+* (DET),1.086,,1.086
+1910,Sherry Magee (PHI),0.952,,Ty Cobb+* (DET),1.004,,1.004
+1909,Honus Wagner+ (PIT),0.909,,Ty Cobb+* (DET),0.947,,0.947
+1908,Honus Wagner+ (PIT),0.957,,Ty Cobb+* (DET),0.844,,0.957
+1907,Honus Wagner+ (PIT),0.921,,Ty Cobb+* (DET),0.848,,0.921
+1906,Honus Wagner+ (PIT),0.875,,George Stone* (SLB),0.918,,0.918
+1905,Cy Seymour* (CIN),0.988,,Elmer Flick+* (CLE),0.845,,0.988
+1904,Honus Wagner+ (PIT),0.944,,Nap Lajoie+ (CLE),0.959,,0.959
+1903,Fred Clarke+* (PIT),0.946,,Nap Lajoie+ (CLE),0.896,,0.946
+1902,Honus Wagner+ (PIT),0.857,,Ed Delahanty+ (WSH),1.043,,1.043
+1901,Ed Delahanty+ (PHI),0.955,,Nap Lajoie+ (PHA),1.106,,1.106
+1900,Honus Wagner+ (PIT),1.007,,,,,1.007
+1899,Ed Delahanty+ (PHI),1.046,,,,,1.046
+1898,Billy Hamilton+* (BSN),0.933,,,,,0.933
+1897,Willie Keeler+* (BLN),1.003,,,,,1.003
+1896,Ed Delahanty+ (PHI),1.103,,,,,1.103
+1895,Ed Delahanty+ (PHI),1.117,,,,,1.117
+1894,Hugh Duffy+ (BSN),1.196,,,,,1.196
+1893,Billy Hamilton+* (PHI),1.014,,,,,1.014
+1892,Dan Brouthers+* (BRO),0.911,,American Association,OPS,,0.911
+1891,Mike Tiernan* (NYG),0.882,,Dan Brouthers+* (BOS),0.983,,0.983
+1890,Mike Tiernan* (NYG),0.880,,Denny Lyons (PHA),0.992,,0.992
+1889,Fred Carroll (PIT),0.970,,Tommy Tucker# (BAL),0.934,,0.970
+1888,Cap Anson+ (CHC),0.899,,John Reilly (CIN),0.864,,0.899
+1887,Dan Brouthers+* (DTN),0.988,,Tip O'Neill (STL),1.18,,1.180
+1886,Dan Brouthers+* (DTN),1.026,,Bob Caruthers* (STL),0.974,,1.026
+1885,Dan Brouthers+* (BUF),0.951,,Pete Browning (LOU),0.923,,0.951
+1884,Dan Brouthers+* (BUF),0.941,,John Reilly (CIN),0.918,,0.941
+1883,Dan Brouthers+* (BUF),0.969,,Ed Swartwood* (PIT),0.869,,0.969
+1882,Dan Brouthers+* (BUF),0.950,,Pete Browning (LOU),0.94,,0.950
+1881,Cap Anson+ (CHC),0.952,,,,,0.952
+1880,George Gore* (CHC),0.862,,,,,0.862
+1879,John O'Rourke* (BSN),0.877,,,,,0.877
+1878,Paul Hines (PRO),0.849,,,,,0.849
+1877,Deacon White+* (BSN),0.950,,,,,0.950
+1876,Ross Barnes (CHC),1.052,,,,,1.052
+1875,Cal McVey (BOS),0.873,,,,,0.873
+1874,Levi Meyerle (CHI),0.889,,,,,0.889
+1873,Ross Barnes (BOS),1.080,,,,,1.080
+1872,Ross Barnes (BOS),1.034,,,,,1.034
+1871,Levi Meyerle (ATH),1.200,,,,,1.200
